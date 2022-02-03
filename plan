@@ -1,0 +1,22 @@
+
+1. Create a new module called Subjects, ClassRoom, Fees, Simester,
+2. ClassRoom {
+		When a students gets promoted to another classRoom, The old data is Kept.
+	A new one is then created. A module is created with the following
+	ClassName, 
+	ClassTeachers, 
+	ClassReps, 
+	ClassStudents, 
+	ClassCourses, 
+	ClassFees
+3. Fess 
+	
+	{
+	SchoolFees, TutionFee, IctFee, LibraryFee
+	}
+4.	Simester 
+		The simester will hold all the data. This is because all students,
+	teachers, and everything are in a semester.
+	{
+	SimesterName[sem1,sem2, sem3], SimesterTeachers, SimesterFees, SimesterStudents, SimesterClassRoo 
+	}

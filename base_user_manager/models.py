@@ -12,7 +12,8 @@ class CustomUserManager(BaseUserManager):
             raise ValueError('A proper username is required')
         else:
             email = self.normalize_email(email)
-            student = self.model(username=username, email=email)
+            student = self.model(username=username, email=email,
+                    **other_fields)
             student.set_password(password)
             student.is_active=True
             student.is_student=True
@@ -24,7 +25,7 @@ class CustomUserManager(BaseUserManager):
             raise ValueError('A proper username is required')
         else:
             email = self.normalize_email(email)
-            staff = self.model(username=username, email=email)
+            staff = self.model(username=username, email=email, **other_fields)
             staff.set_password(password)
             staff.is_active = True
             staff.is_staff = True
@@ -36,7 +37,7 @@ class CustomUserManager(BaseUserManager):
             raise ValueError("A proper username is required")
         else:
             email = self.normalize_email(email)
-            admin = self.model(username=username, email=email)
+            admin = self.model(username=username, email=email, **other_fields)
             admin.set_password(password)
             admin.is_active = True
             admin.is_staff = True
@@ -45,7 +46,7 @@ class CustomUserManager(BaseUserManager):
             return admin
     #superuser with all privilages.
     def create_superuser(self, username, email, password=None, **other_fields):
-        superuser = self.create_admin_user(username=username, email=email, password=password)
+        superuser = self.create_admin_user(username=username, email=email, password=password, **other_fields)
         superuser.is_active=True
         superuser.is_student=True
         superuser.is_staff=True

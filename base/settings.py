@@ -38,17 +38,29 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     #'testApp.apps.TestappConfig',
+    'corsheaders',
     'Students.apps.StudentsConfig',
+    'ClassRooms.apps.ClassroomsConfig',
     'base_user_manager.apps.BaseUserManagerConfig',
     'rest_framework',
     'Teachers.apps.TeachersConfig',
+    'Course.apps.CourseConfig',
+    'Semester.apps.SemesterConfig',
+    'Quiz.apps.QuizConfig',
+    'Results.apps.ResultsConfig',
+    'Level.apps.LevelConfig',
+    'Fees.apps.FeesConfig',
+    #semeseter
+    'Semester_1.apps.Semester1Config',
+    'Semester_2.apps.Semester2Config',
+    'Semester_3.apps.Semester3Config',
     'knox',
 ]
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
-        #'rest_framework_simplejwt.authentication.JWTAuthentication',
-        'knox.auth.TokenAuthentication',
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+        #'knox.auth.TokenAuthentication',
 ]
         }
 
@@ -60,9 +72,11 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'base.urls'
+CORS_ALLOWED_ORIGINS = ('http://localhost:3000',)
 
 TEMPLATES = [
     {
@@ -88,8 +102,11 @@ WSGI_APPLICATION = 'base.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'management_backend',
+        'PASSWORD': 'chuckwo1',
+        'USER':'django_user',
+        'HOST':'localhost',
     }
 }
 
@@ -132,4 +149,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
 AUTH_USER_MODEL = 'base_user_manager.C_user'
+
