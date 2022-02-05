@@ -3,16 +3,16 @@ from Students.models import Student
 
 # Create your models here.
 class Tiution_Fee(models.Model):
-    paid = models.DecimalField(decimal_places=2, max_digits=999999, default=0)
-    amount = models.DecimalField(decimal_places=2, max_digits=9999, null=True, blank=True)
+    paid = models.DecimalField(decimal_places=2, max_digits=999,default=0)
+    amount = models.DecimalField(decimal_places=2, max_digits=999, null=True, blank=True)
 
 class Library_Fee(models.Model):
-    paid = models.DecimalField(decimal_places=2, max_digits=9999)
-    amount = models.DecimalField(decimal_places=2, max_digits=9999)
+    paid = models.DecimalField(decimal_places=2, max_digits=999)
+    amount = models.DecimalField(decimal_places=2, max_digits=999)
 
 class SRC_Dues(models.Model):
-    paid = models.DecimalField(decimal_places=2, max_digits=99999)
-    amount = models.DecimalField(decimal_places=2, max_digits=9999)
+    paid = models.DecimalField(decimal_places=2, max_digits=999)
+    amount = models.DecimalField(decimal_places=2, max_digits=999)
 
 class Fees(models.Model):
     student = models.ForeignKey(Student, on_delete=models.CASCADE)

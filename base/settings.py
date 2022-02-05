@@ -40,12 +40,12 @@ INSTALLED_APPS = [
     #'testApp.apps.TestappConfig',
     'corsheaders',
     'Students.apps.StudentsConfig',
-    'ClassRooms.apps.ClassroomsConfig',
+    #'ClassRooms.apps.ClassroomsConfig',
     'base_user_manager.apps.BaseUserManagerConfig',
     'rest_framework',
     'Teachers.apps.TeachersConfig',
     'Course.apps.CourseConfig',
-    'Semester.apps.SemesterConfig',
+    #'Semester.apps.SemesterConfig',
     'Quiz.apps.QuizConfig',
     'Results.apps.ResultsConfig',
     'Level.apps.LevelConfig',
@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'Semester_1.apps.Semester1Config',
     'Semester_2.apps.Semester2Config',
     'Semester_3.apps.Semester3Config',
+    'Std_quiz.apps.StdQuizConfig',
     'knox',
 ]
 

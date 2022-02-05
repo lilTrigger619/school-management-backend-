@@ -3,7 +3,6 @@ from django.utils import timezone
 from django.conf import settings
 from uuid import uuid4
 from Level.models import Level
-from ClassRooms.models import Class_list
 from Course.models import Course
 # Create your models here.
 
@@ -59,7 +58,6 @@ class Student(models.Model):
     parent = models.ForeignKey(Parent, on_delete=models.CASCADE, blank=True, null=True) #Student has only one parent but parent can
     #have more than one student
     parent_confirmation = models.BooleanField(verbose_name="parent confirmation status", blank=True, null=True)
-    classroom = models.ManyToManyField(Class_list)
     level = models.ForeignKey(Level , on_delete=models.CASCADE, null=True, blank=True)
     course = models.ManyToManyField(Course)
 
@@ -68,9 +66,9 @@ class Student(models.Model):
 
 
 class Prefect(models.Model):
-    name = models.CharField(max_length=255)
-    student = models.ForeignKey(Student, on_delete=models.CASCADE)
-    description = models.TextField()
+    title = models.CharField(max_length=255)
+    student = models.ForeignKey(Student, on_delete=models.CASCADE, blank=True, null=True)
+    description = models.TextField(blank=True, null=True)
 
     def __str__(self):
-        return self.name
+        return self.title
