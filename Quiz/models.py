@@ -9,7 +9,7 @@ import uuid
 class Quiz(models.Model):
     title = models.TextField()
     uuid = models.CharField(max_length=223, default=uuid.uuid4())
-    staff = models.OneToOneField(Staff, on_delete=models.CASCADE)
+    staff = models.ForeignKey(Staff, on_delete=models.CASCADE)
     course = models.ForeignKey(Course, on_delete=models.CASCADE)
     instructions = models.TextField(blank=True, null=True)
     is_obj = models.BooleanField(default=False)
@@ -17,12 +17,15 @@ class Quiz(models.Model):
     is_filed = models.BooleanField(default=False)
     due_date = models.IntegerField(null=True, blank=True)
     timer = models.IntegerField(null=True, blank=True)
+    radomize_questions = models.BooleanField(default=False)
+    radomize_options = models.BooleanField(default=False)
     
     def __str__(self):
         return self.title
 
 #objective question model and options
 class Obj(models.Model):
+    question_number = models.IntegerField()
     question = models.TextField()
     uuid = models.CharField(max_length=223, default=uuid.uuid4())
     answer = models.CharField(max_length=223, blank=True, null=True)
@@ -34,6 +37,7 @@ class Obj(models.Model):
 class Options(models.Model):
     question = models.ForeignKey(Obj, on_delete=models.CASCADE)
     option = models.CharField(max_length=223)
+    option_number = models.IntegerField(null=True, blank=True)
 
     def __str__(self):
         return self.option
@@ -41,6 +45,7 @@ class Options(models.Model):
 
 #Text_input question and answer.
 class Written(models.Model):
+    question_number = models.IntegerField(blank=True, null=True)
     question = models.TextField()
     uuid = models.CharField(max_length=223, default=uuid.uuid4())
     answer = models.TextField(blank=True, null=True)

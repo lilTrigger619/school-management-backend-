@@ -1,6 +1,6 @@
 from django.db import models
 from Course.models import Course
-from Teachers.models import Staff
+from Students.models import Student
 
 # Create your models here.
 '''
@@ -16,9 +16,10 @@ Same for every question in all Quiz set.
 #Main quiz object for quiz
 class Quiz_Answer(models.Model):
     title = models.TextField()
-    staff = models.OneToOneField(Staff, on_delete=models.CASCADE)
-    Course = models.ForeignKey(Course, on_delete=models.CASCADE)
-    uuid = models.CharField(max_length=223)
+    student = models.ForeignKey(Student, on_delete=models.CASCADE)
+    course = models.ForeignKey(Course, on_delete=models.CASCADE)
+    quiz_uuid = models.CharField(max_length=223)
+    score = models.DecimalField(default=0, decimal_places=2, max_digits=5)
 
 #objective question model and options
 class Obj(models.Model):
