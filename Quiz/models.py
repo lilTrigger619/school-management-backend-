@@ -5,6 +5,7 @@ import uuid
 
 # Create your models here.
 
+
 #Main quiz object for quiz
 class Quiz(models.Model):
     title = models.TextField()
@@ -19,9 +20,10 @@ class Quiz(models.Model):
     timer = models.IntegerField(null=True, blank=True)
     radomize_questions = models.BooleanField(default=False)
     radomize_options = models.BooleanField(default=False)
-    
+
     def __str__(self):
         return self.title
+
 
 #objective question model and options
 class Obj(models.Model):
@@ -33,6 +35,7 @@ class Obj(models.Model):
 
     def __str__(self):
         return self.question
+
 
 class Options(models.Model):
     question = models.ForeignKey(Obj, on_delete=models.CASCADE)
@@ -50,7 +53,7 @@ class Written(models.Model):
     uuid = models.CharField(max_length=223, default=uuid.uuid4())
     answer = models.TextField(blank=True, null=True)
     quiz = models.ForeignKey(Quiz, on_delete=models.CASCADE)
-    
+
     def __str__(self):
         return self.question
 

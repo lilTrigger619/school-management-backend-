@@ -104,7 +104,7 @@ WSGI_APPLICATION = 'base.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'management_backend',
+        'NAME': 'mngment_33221_testdb',
         'PASSWORD': 'chuckwo1',
         'USER':'django_user',
         'HOST':'localhost',
@@ -152,4 +152,4 @@ STATIC_URL = '/static/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 AUTH_USER_MODEL = 'base_user_manager.C_user'
-
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
