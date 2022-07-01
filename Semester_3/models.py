@@ -7,3 +7,6 @@ from Course.models import Course
 class Sem_3(models.Model):
     course = models.ManyToManyField(Course)
     #fees = models.ManyToManyField(Fees)
+
+    def __str__(self):
+        return self.level.name

@@ -8,3 +8,5 @@ class Sem_1(models.Model):
     #Class_list.sem_1
     #fees = models.ManyToManyField(Fees)
 
+    def __str__(self):
+        return self.level.name;
