@@ -14,24 +14,24 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.AddField(
-            model_name='quiz',
-            name='staff',
-            field=models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, to='Teachers.Staff'),
-        ),
+      #  migrations.AddField(
+      #      model_name='quiz',
+      #      name='staff',
+      #      field=models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, to='Teachers.Staff'),
+      #  ),
         migrations.AddField(
             model_name='options',
             name='Question',
             field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='Quiz.Obj'),
         ),
-        migrations.AddField(
-            model_name='obj',
-            name='quiz',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='Quiz.Quiz'),
-        ),
-        migrations.AddField(
-            model_name='file_upload',
-            name='quiz',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='Quiz.Quiz'),
-        ),
+      #  migrations.AddField(
+      #      model_name='obj',
+      #      name='quiz',
+      #      field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='Quiz.Quiz'),
+      #  ),
+      #  migrations.AddField(
+      #      model_name='file_upload',
+      #      name='quiz',
+      #      field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='Quiz.Quiz'),
+      #  ),
     ]
