@@ -42,6 +42,7 @@ class Prefect_serializer(serializers.ModelSerializer):
 class Create_student_profile_serializer(serializers.ModelSerializer):
     user = Student_account_serializer(required=False)
     prefect_set = Prefect_serializer(required=False, many=True)
+    profile_image = serializers.ImageField(required=False);
 
     class Meta:
         model = Student

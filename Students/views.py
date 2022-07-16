@@ -15,6 +15,7 @@ class Create_student_profile_view(APIView):
     permission_classes=[IsAuthenticated]
     def post(self, request):
         _xdata = request.data
+        print(_xdata);
         _ser_data = Create_student_profile_serializer(data=_xdata)
         if (_ser_data.is_valid()):
             _ser_data.save()
@@ -59,6 +60,7 @@ class Detail_update_student_profile_view(APIView):
 class Student_minimal_view(APIView):
     #this view is only used to get the student mininal view
     # this will not accept any post request.
+    permission_classes=[IsAuthenticated]
     def get(self, request):
         all_students = Student.objects.all()
         the_data = []

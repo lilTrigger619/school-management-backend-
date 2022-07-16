@@ -8,6 +8,7 @@ urlpatterns = [
     #student views...
     path('', Student_minimal_view.as_view(), name='Student_min_view'),
     path('create_student/', Create_student_profile_view.as_view(), name="create student profile"),
+    #path('profile_image/', Student_profile_image.as_view(), name="student profile image"),
     #Detail student view
     path('<int:pk>/',
          Detail_update_student_profile_view.as_view(),
