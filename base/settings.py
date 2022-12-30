@@ -55,7 +55,7 @@ INSTALLED_APPS = [
     'Semester_2.apps.Semester2Config',
     'Semester_3.apps.Semester3Config',
     'Std_quiz.apps.StdQuizConfig',
-    'knox',
+    #'knox',
 ]
 
 REST_FRAMEWORK = {

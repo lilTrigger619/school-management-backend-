@@ -13,10 +13,7 @@ Gender = (('mal', 'Male'), ('fem', 'Female'))
 
 #admin to register staff will use this function to upload to the directory
 def photo_upload(instance, filename):
-    return 'staff/{0} {1}/profile_image/{2}'.format(instance.first_name,
-                                                    instance.last_name,
-                                                    filename)
-
+    return 'staff/{0} {1}/profile_image/{2}'.format(instance.first_name, instance.last_name, filename)
 
 class Staff(models.Model):
     user = models.OneToOneField(C_user, on_delete=models.CASCADE)

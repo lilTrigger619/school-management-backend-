@@ -15,17 +15,28 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView, TokenVerifyView
-#for images
+from rest_framework_simplejwt.views import (
+    TokenObtainPairView,
+    TokenRefreshView,
+    TokenVerifyView,
+)
+
+# for images
 from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('student/', include('Students.urls')),
-    path('staff/', include('Teachers.urls')),
-    path('account/', include('base_user_manager.urls')), path('level/', include('Level.urls')), path('course/', include('Course.urls')), path('login/', TokenObtainPairView.as_view(), name='login'), path('refresh_token/', TokenRefreshView.as_view(), name='refresh_token'), path('verify_token/', TokenVerifyView.as_view(), name='verify_token'),
+    path("admin/", admin.site.urls),
+    path("student/", include("Students.urls")),
+    path("staff/", include("Teachers.urls")),
+    path("account/", include("base_user_manager.urls")),
+    path("level/", include("Level.urls")),
+    path("course/", include("Course.urls")),
+    path("login/", TokenObtainPairView.as_view(), name="login"),
+    path("refresh_token/", TokenRefreshView.as_view(), name="refresh_token"),
+    path("verify_token/", TokenVerifyView.as_view(), name="verify_token"),
+    path("profile/", include("user_profile.urls")),
 ]
 
 # for images
-urlpatterns +=  static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
